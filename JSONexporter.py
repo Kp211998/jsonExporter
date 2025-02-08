@@ -1,5 +1,12 @@
 import streamlit as st
 import json
+import os
+
+# Check if we are on Windows. If not, display an error message.
+if os.name != "nt":
+    st.error("This app requires Windows because EA COM automation (via pywin32) is only available on Windows.")
+    st.stop()
+
 import win32com.client
 import pythoncom
 
